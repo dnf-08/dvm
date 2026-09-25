@@ -7,7 +7,7 @@ def topartists(country):
     params={
         'method':'geo.gettopartists',
         'country':country,
-        'api_key': settings.lastfmapi,
+        'api_key': settings.LASTFMAPI,
         'format':'json'
 
 
@@ -19,7 +19,7 @@ def toptracks(country):
     params={
             'method':'geo.gettoptracks',
             'country':country,
-            'api_key':settings.lastfmapi,
+            'api_key':settings.LASTFMAPI,
             'format':'json'
     }
     data= requests.get(base_url, params = params)
@@ -30,7 +30,7 @@ def artistsearch(artist):
     params={
             'method':'artist.search',
             'artist':artist,
-            'api_key':settings.lastfmapi,
+            'api_key':settings.LASTFMAPI,
             'format':'json'
     }
     data= requests.get(base_url, params = params)
@@ -39,7 +39,7 @@ def albumsearch(album):
     params={
             'method':'album.search',
             'album':album,
-            'api_key':settings.lastfmapi,
+            'api_key':settings.LASTFMAPI,
             'format':'json'
     }
     data= requests.get(base_url, params = params)
@@ -49,7 +49,7 @@ def tracksearch(track):
     params={
             'method':'track.search',
             'track':track,
-            'api_key':settings.lastfmapi,
+            'api_key':settings.LASTFMAPI,
             'format':'json'
     }
     data= requests.get(base_url, params = params)

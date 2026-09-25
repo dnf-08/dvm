@@ -53,3 +53,5 @@ def tracksearchv(request):
     }
     return render(request, 'lastfm/tracksearch.html', info)
 
+def home(request):
+    return render(request, 'lastfm/home.html')
