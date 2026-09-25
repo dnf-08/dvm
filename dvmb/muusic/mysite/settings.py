@@ -12,6 +12,13 @@ https://docs.djangoproject.com/en/6.1/ref/settings/
 
 from pathlib import Path
 
+
+#this is for my last fm api(ive put it in a .env file which is in .gitignore)
+import os 
+from dotenv import load_dotenv
+load_dotenv()
+lastfmapi = os.getenv('api_key')
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
