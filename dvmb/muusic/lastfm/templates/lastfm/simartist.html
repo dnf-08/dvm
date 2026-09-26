@@ -1,30 +1,31 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>music app</title>
+    <link rel="stylesheet" href="{% static 'lastfm/css/page.css' %}">
 </head>
 <body>
 <hr>
 <h2>Similar artists</h2>
-    <p>type an artist's name and then click search to find others similar to their style</p>
+    <p>Type an artist's name and then click search to find others similar to their style</p>
 
     <form method="GET">
         <input type="text" name="artist" value="{{ input }}" placeholder="ex: radiohead">
         <button type="submit">Search</button>
         {% url 'home' as home_url %}
-        <button type="button" onclick="window.location.href='{{ home_url }}'" style="float: right;">HOME</button>
+        <button type="button" onclick="window.location.href='{{ home_url }}'" style="float: right; padding: 2px 30px; background-color: #51a3be; color: blue; font-size: 20px;">home</button>
     </form>
     <hr>
     {% if artists %}
         <h3>RESULTS:</h3>
-        <ul>
+        <ol>
             {% for artist in artists %}
                 <li>
                     <a href="{{ artist.url }}" target="_blank">{{ artist.name }}</a>
                     || based on lastfm's data, {{artist.name}} and {{input}} have a match of {{artist.match}}
                 </li>
             {% endfor %}
-        </ul>
+        </ol>
     {% endif %}
-<hr>

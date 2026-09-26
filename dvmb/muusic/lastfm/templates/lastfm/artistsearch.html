@@ -1,8 +1,10 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>music app</title>
+    <link rel="stylesheet" href="{% static 'lastfm/css/page.css' %}">
 </head>
 <body>
 <hr>
@@ -14,7 +16,7 @@
         <input type="text" name="artist" value="{{ input }}" placeholder="ex: radiohead">
         <button type="submit">Search</button>
         {% url 'home' as home_url %}
-        <button type="button" onclick="window.location.href='{{ home_url }}'" style="float: right;">HOME</button>
+        <button type="button" onclick="window.location.href='{{ home_url }}'" style="float: right; padding: 2px 30px; background-color: #51a3be; color: blue; font-size: 20px;">home</button>
     </form>
     <hr>
     {% if artists %}
@@ -28,4 +30,3 @@
             {% endfor %}
         </ul>
     {% endif %}
-<hr>
