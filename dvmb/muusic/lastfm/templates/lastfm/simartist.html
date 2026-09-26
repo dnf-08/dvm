@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>music app</title>
+</head>
+<body>
+<hr>
+<h2>Similar artists</h2>
+    <p>type an artist's name and then click search to find others similar to their style</p>
+
+    <form method="GET">
+        <input type="text" name="artist" value="{{ input }}" placeholder="ex: radiohead">
+        <button type="submit">Search</button>
+        {% url 'home' as home_url %}
+        <button type="button" onclick="window.location.href='{{ home_url }}'" style="float: right;">HOME</button>
+    </form>
+    <hr>
+    {% if artists %}
+        <h3>RESULTS:</h3>
+        <ul>
+            {% for artist in artists %}
+                <li>
+                    <a href="{{ artist.url }}" target="_blank">{{ artist.name }}</a>
+                    || based on lastfm's data, {{artist.name}} and {{input}} have a match of {{artist.match}}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+<hr>

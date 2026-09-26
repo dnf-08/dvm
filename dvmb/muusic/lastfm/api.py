@@ -54,3 +54,13 @@ def tracksearch(track):
     }
     data= requests.get(base_url, params = params)
     return data.json().get('results',{}).get('trackmatches',{}).get('track',[])
+
+def simartist(artist):
+    params={
+        'method':'artist.getSimilar',
+        'artist':artist,
+        'api_key':settings.LASTFMAPI,
+        'format':'json'
+    }
+    data= requests.get(base_url, params = params)
+    return data.json().get('similarartists', {}).get('artist', [])

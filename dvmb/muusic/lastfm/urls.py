@@ -9,6 +9,8 @@ urlpatterns = [
     path('search/artist/', views.artistsearchv, name='artist_search'),
     path('search/album/', views.albumsearchv, name='album_search'),
     path('search/track/', views.tracksearchv, name='track_search'),
+    path('similar/artist/', views.simartistv, name='similar_artists'),
+    
 ]
 
 

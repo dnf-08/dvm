@@ -4,7 +4,7 @@ from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
-from .api import topartists,toptracks,artistsearch,albumsearch,tracksearch
+from .api import topartists,toptracks,artistsearch,albumsearch,tracksearch,simartist
 # Create your views here.
 def topartistsv(request):
     country = request.GET.get('country', '')
@@ -55,3 +55,12 @@ def tracksearchv(request):
 
 def home(request):
     return render(request, 'lastfm/home.html')
+
+def simartistv(request):
+    artist = request.GET.get('artist', '')
+    artistdic = simartist(artist)
+    info = {
+    'artists': artistdic,
+    'input': artist,
+    }
+    return render(request, 'lastfm/simartist.html', info)
