@@ -7,26 +7,26 @@ from django.utils import timezone
 from .api import topartists,toptracks,artistsearch,albumsearch,tracksearch
 # Create your views here.
 def topartistsv(request):
-    country = request.GET.get('country', 'United States')
+    country = request.GET.get('country', '')
     artistdic = topartists(country)
     info = {
     'artists': artistdic,
-    'country': country,
+    'input': country,
     }
     return render(request, 'lastfm/topartist.html', info)
 
 def toptracksv(request):
-    country = request.GET.get('country', 'United States')
+    country = request.GET.get('country', '')
     trackdic = toptracks(country)
     info = {
     'tracks': trackdic,
-    'country': country,
+    'input': country,
     }
     return render(request, 'lastfm/toptrack.html', info)
 
 
 def artistsearchv(request):
-    artist = request.GET.get('artist', 'Radiohead')
+    artist = request.GET.get('artist', '')
     artistdic = artistsearch(artist)
     info = {
     'artists': artistdic,
@@ -36,7 +36,7 @@ def artistsearchv(request):
 
 
 def albumsearchv(request):
-    album = request.GET.get('album', 'Nevermind')
+    album = request.GET.get('album', '')
     albumdic = albumsearch(album)
     info = {
     'albums': albumdic,
@@ -45,7 +45,7 @@ def albumsearchv(request):
     return render(request, 'lastfm/albumsearch.html', info)
 
 def tracksearchv(request):
-    track = request.GET.get('track', 'Someday')
+    track = request.GET.get('track', '')
     trackdic = tracksearch(track)
     info = {
     'tracks': trackdic,

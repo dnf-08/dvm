@@ -13,11 +13,8 @@
     <form method="GET">
         <input type="text" name="album" value="{{ input }}" placeholder="ex: nevermind">
         <button type="submit">Search</button>
-    </form>
-    <hr>
-        <form action="{% url 'home' %}" method="GET" style="font-size: 20px;">
-        <button type="submit">HOME BUTTON</button>
-        </form>
+        {% url 'home' as home_url %}
+        <button type="button" onclick="window.location.href='{{ home_url }}'" style="float: right;">HOME </button>
     <hr>
     {% if albums %}
         <h3>results:</h3>
@@ -30,3 +27,4 @@
             {% endfor %}
         </ul>
     {% endif %}
+<hr>

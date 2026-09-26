@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>music app</title>
+</head>
+<body>
+<hr>
+
+<h2>Search tracks</h2>
+    <p>type an track's name and then click search</p>
+
+    <form method="GET">
+        <input type="text" name="track" value="{{ input }}" placeholder="ex: someday">
+        <button type="submit">Search</button>
+        {% url 'home' as home_url %}
+        <button type="button" onclick="window.location.href='{{ home_url }}'" style="float: right;">HOME</button>
+    </form>
+    <hr>
+    {% if tracks %}
+        <h3>results:</h3>
+        <ul>
+            {% for track in tracks %}
+                <li>
+                    <a href="{{ track.url }}" target="_blank">{{ track.name }}</a>
+                    by {{ track.artist }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+<hr>

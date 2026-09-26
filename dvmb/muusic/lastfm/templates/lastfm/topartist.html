@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>music app</title>
+</head>
+<body>
+
+
+<h2>Top artists</h2>
+    <p>type an country's name and then click search</p>
+    <form method="GET">
+        <input type="text" name="country" value="{{ input }}" placeholder="ex: India">
+        <button type="submit">Search</button>
+        {% url 'home' as home_url %}
+        <button type="button" onclick="window.location.href='{{ home_url }}'" style="float: right;">HOME</button>
+    </form>
+<hr>
+    {%if artists%}
+        <h3>Results:</h3>
+        <ul>
+            {%for artist in artists%}
+            <li>
+            <a href="{{ artist.url }}" target="_blank">{{ artist.name }}</a>
+            </li>
+            {%endfor%}
+        </ul>
+    {%endif%}
+<hr>
