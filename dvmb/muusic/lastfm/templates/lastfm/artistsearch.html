@@ -10,7 +10,7 @@
 <hr>
 
 <h2>Search artists</h2>
-    <p>type an artist's name and then click search</p>
+    <p>Enter an artist's name</p>
 
     <form method="GET">
         <input type="text" name="artist" value="{{ input }}" placeholder="ex: radiohead">
@@ -21,12 +21,12 @@
     <hr>
     {% if artists %}
         <h3>RESULTS:</h3>
-        <ul>
+        <ol>
             {% for artist in artists %}
                 <li>
                     <a href="{{ artist.url }}" target="_blank">{{ artist.name }}</a>
                     || the number of monthly listeners {{ artist.name }} is: {{ artist.listeners }}
                 </li>
             {% endfor %}
-        </ul>
+        </ol>
     {% endif %}

@@ -9,8 +9,8 @@
 <body>
 
 
-<h2>Top artists</h2>
-    <p>type an country's name and then click search</p>
+<h2>Top artists of a country</h2>
+    <p>Enter a country's name</p>
     <form method="GET">
         <input type="text" name="country" value="{{ input }}" placeholder="ex: India">
         <button type="submit">Search</button>
@@ -20,11 +20,11 @@
 <hr>
     {%if artists%}
         <h3>Results:</h3>
-        <ul>
+        <ol>
             {%for artist in artists%}
             <li>
             <a href="{{ artist.url }}" target="_blank">{{ artist.name }}</a>
             </li>
             {%endfor%}
-        </ul>
+        </ol>
     {%endif%}

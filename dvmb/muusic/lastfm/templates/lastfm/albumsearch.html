@@ -10,7 +10,7 @@
 <hr>
 
 <h2>Search albums</h2>
-    <p>type an album's name and then click search</p>
+    <p>Enter an album's name</p>
 
     <form method="GET">
         <input type="text" name="album" value="{{ input }}" placeholder="ex: nevermind">
@@ -20,12 +20,12 @@
     <hr>
     {% if albums %}
         <h3>results:</h3>
-        <ul>
+        <ol>
             {% for album in albums %}
                 <li>
                     <a href="{{ album.url }}" target="_blank">{{ album.name }}</a>
                     by {{ album.artist }}
                 </li>
             {% endfor %}
-        </ul>
+        </ol>
     {% endif %}

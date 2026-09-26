@@ -10,7 +10,7 @@
 <hr>
 
 <h2>Search tracks</h2>
-    <p>type an track's name and then click search</p>
+    <p>Enter a track's name</p>
 
     <form method="GET">
         <input type="text" name="track" value="{{ input }}" placeholder="ex: someday">
@@ -21,12 +21,12 @@
     <hr>
     {% if tracks %}
         <h3>results:</h3>
-        <ul>
+        <ol>
             {% for track in tracks %}
                 <li>
                     <a href="{{ track.url }}" target="_blank">{{ track.name }}</a>
                     by {{ track.artist }}
                 </li>
             {% endfor %}
-        </ul>
+        </ol>
     {% endif %}
