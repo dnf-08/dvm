@@ -4,7 +4,13 @@ body{
     color: #192e14;
     padding: 30px 15px;
 }
+h2{
+    font-size: 35px;
+}
+p{
+    font-size: 24px;
+}
 ol {
     background: #2c9f6d;
-    margin-right: 600px;
+    margin-right: 580px;
 }

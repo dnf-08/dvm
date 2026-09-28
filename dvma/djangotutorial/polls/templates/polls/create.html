@@ -1,0 +1,15 @@
+<h1>Create Your Own Poll</h1>
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+<form action="{% url 'polls:create' %}" method="post">
+    {% csrf_token %} 
+    <label>Poll Question:</label>
+    <input type="text" name="question"><br><br>
+
+    <label>Choice 1:</label>
+    <input type="text" name="choice1"><br>
+
+    <label>Choice 2:</label>
+    <input type="text" name="choice2"><br><br>
+
+    <input type="submit" value="Publish Poll">
+</form>

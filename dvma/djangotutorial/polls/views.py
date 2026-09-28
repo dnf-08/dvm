@@ -5,7 +5,6 @@ from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
 from .models import Choice, Question
-
  
 class IndexView(generic.ListView):
     template_name = "polls/index.html"
@@ -27,7 +26,6 @@ class ResultsView(generic.DetailView):
     model = Question
     template_name = "polls/results.html"
 
-
 def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     try:
@@ -45,3 +43,25 @@ def vote(request, question_id):
         selected_choice.votes = F("votes") + 1
         selected_choice.save()
         return HttpResponseRedirect(reverse("polls:results", args=(question.id,)))
+
+
+#extra feature
+def create(request):
+    if request.method == "GET":
+        return render(request, "polls/create.html")
+    try:
+        q= request.POST["question"]
+        c1 = request.POST["choice1"]
+        c2= request.POST["choice2"]
+        if not q or not c1 or not c2:
+            raise KeyError
+    except KeyError:
+        return render(request,"polls/create.html",{"error_message": "You didnt fill all the required fields",},)
+    else:
+        newq  = Question.objects.create(
+            question_text = q,
+            pub_date=timezone.now()
+        )
+        newq.choice_set.create(choice_text = c1)
+        newq.choice_set.create(choice_text = c2)
+        return HttpResponseRedirect(reverse("polls:index"))

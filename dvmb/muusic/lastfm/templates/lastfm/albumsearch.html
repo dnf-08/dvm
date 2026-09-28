@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{% static 'lastfm/css/page.css' %}">
 </head>
 <body>
-<hr>
+
 
 <h2>Search albums</h2>
     <p>Enter an album's name</p>
@@ -18,14 +18,14 @@
         {% url 'home' as home_url %}
         <button type="button" onclick="window.location.href='{{ home_url }}'" style="float: right; padding: 2px 30px; background-color: #51a3be; color: blue; font-size: 20px;">home</button>
     <hr>
-    {% if albums %}
+    {% if albums%}
         <h3>results:</h3>
         <ol>
-            {% for album in albums %}
+            {%for album in albums%}
                 <li>
                     <a href="{{ album.url }}" target="_blank">{{ album.name }}</a>
                     by {{ album.artist }}
                 </li>
-            {% endfor %}
+            {%endfor%}
         </ol>
-    {% endif %}
+    {%endif%}
