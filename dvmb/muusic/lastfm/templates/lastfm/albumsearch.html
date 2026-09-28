@@ -17,6 +17,7 @@
         <button type="submit">Search</button>
         {% url 'home' as home_url %}
         <button type="button" onclick="window.location.href='{{ home_url }}'" style="float: right; padding: 2px 30px; background-color: #51a3be; color: blue; font-size: 20px;">home</button>
+    </form>
     <hr>
     {% if albums%}
         <h3>results:</h3>
